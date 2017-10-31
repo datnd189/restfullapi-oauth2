@@ -1,11 +1,13 @@
 <?php
 
+
 use App\User;
 use App\Product;
 use App\Category;
 use App\Transaction;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+
 
 class DatabaseSeeder extends Seeder
 {
@@ -26,7 +28,7 @@ class DatabaseSeeder extends Seeder
         $userQuantity = 200;
         $categoriesQuantity = 30;
         $productsQuantity = 1000;
-        $transationsQuantity = 1000;
+        $transactionsQuantity = 1000;
 
         factory(User::class, $userQuantity)->create();
         factory(Category::class, $categoriesQuantity)->create();
@@ -35,6 +37,6 @@ class DatabaseSeeder extends Seeder
         		$categories = Category::all()->random(mt_rand(1, 5))->pluck('id');
         		$product->categories()->attach($categories);
         	});
-        factory(Transaction::class, $transationsQuantity)->create();
+        factory(Transaction::class, $transactionsQuantity)->create();
     }
 }

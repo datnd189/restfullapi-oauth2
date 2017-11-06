@@ -11,6 +11,8 @@ class Product extends Model
 {
 	const AVAILABLE_PRODUCT = 'available';
 	const UNAVAILABLE_PRODUCT = 'unavailable';
+
+    protected $table = 'products';
     protected $fillable = [
     	'name',
     	'description',
@@ -19,7 +21,7 @@ class Product extends Model
     	'image',
     	'seller_id',
     ];
-    public function isAvailavle(){
+    public function isAvailable(){
     	return $this->status == Product::AVAILABLE_PRODUCT;
     }
 
